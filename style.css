@@ -1,0 +1,1537 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --night: #020817;
+    --deep-blue: #06142e;
+    --navy: #091d40;
+    --card: rgba(11, 31, 65, 0.72);
+
+    --gold: #d8b36a;
+    --gold-light: #f3d99a;
+    --gold-soft: #c9a967;
+
+    --white: #f8f4e8;
+    --text: #e8e7df;
+    --muted: #9caac0;
+
+    --border: rgba(216, 179, 106, 0.32);
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+
+    min-height: 100vh;
+
+    font-family: "Poppins", sans-serif;
+
+    color: var(--text);
+
+    overflow-x: hidden;
+
+    background: var(--night);
+}
+
+
+/* ==========================================
+   NIGHT SKY
+========================================== */
+
+.night-sky {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 15%,
+            #123565 0%,
+            #081d40 28%,
+            #030d22 65%,
+            #010611 100%
+        );
+}
+
+
+/* ==========================================
+   MOON
+========================================== */
+
+.moon-glow {
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255, 226, 157, 0.25),
+            rgba(255, 220, 130, 0.08) 35%,
+            transparent 70%
+        );
+
+    filter: blur(8px);
+
+    animation: moonAura 4s ease-in-out infinite alternate;
+}
+
+
+.crescent-moon {
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    top: 80px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #fff8d9,
+            #e9c978 55%,
+            #b8863c
+        );
+
+    box-shadow:
+
+        0 0 20px rgba(255, 220, 145, 0.7),
+
+        0 0 50px rgba(255, 214, 120, 0.3),
+
+        0 0 100px rgba(255, 214, 120, 0.12);
+
+    animation: moonFloat 5s ease-in-out infinite;
+}
+
+
+/* Cut-out */
+
+.crescent-moon::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 125px;
+    height: 125px;
+
+    top: -10px;
+    left: 30px;
+
+    border-radius: 50%;
+
+    background: #071b3b;
+
+}
+
+
+@keyframes moonAura {
+
+    from {
+        transform: translateX(-50%) scale(0.9);
+        opacity: 0.6;
+    }
+
+    to {
+        transform: translateX(-50%) scale(1.12);
+        opacity: 1;
+    }
+}
+
+
+@keyframes moonFloat {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-8px);
+    }
+}
+
+
+/* ==========================================
+   STARS
+========================================== */
+
+.stars span {
+
+    position: absolute;
+
+    color: rgba(247, 216, 145, 0.75);
+
+    text-shadow:
+        0 0 8px rgba(255, 220, 145, 0.6);
+
+    animation:
+        starTwinkle 3s infinite ease-in-out;
+}
+
+
+/* individual positions */
+
+.stars span:nth-child(1) {
+    top: 9%;
+    left: 12%;
+    font-size: 18px;
+}
+
+.stars span:nth-child(2) {
+    top: 16%;
+    left: 25%;
+    font-size: 11px;
+    animation-delay: .5s;
+}
+
+.stars span:nth-child(3) {
+    top: 7%;
+    right: 20%;
+    font-size: 12px;
+}
+
+.stars span:nth-child(4) {
+    top: 25%;
+    right: 9%;
+    font-size: 18px;
+    animation-delay: 1s;
+}
+
+.stars span:nth-child(5) {
+    top: 34%;
+    left: 7%;
+    font-size: 9px;
+}
+
+.stars span:nth-child(6) {
+    top: 38%;
+    right: 17%;
+    font-size: 14px;
+    animation-delay: .7s;
+}
+
+.stars span:nth-child(7) {
+    top: 48%;
+    left: 14%;
+    font-size: 12px;
+}
+
+.stars span:nth-child(8) {
+    top: 53%;
+    right: 8%;
+    font-size: 9px;
+}
+
+.stars span:nth-child(9) {
+    top: 62%;
+    left: 5%;
+    font-size: 15px;
+}
+
+.stars span:nth-child(10) {
+    top: 69%;
+    right: 14%;
+    font-size: 18px;
+    animation-delay: 1.2s;
+}
+
+.stars span:nth-child(11) {
+    top: 76%;
+    left: 18%;
+    font-size: 9px;
+}
+
+.stars span:nth-child(12) {
+    top: 83%;
+    right: 7%;
+    font-size: 13px;
+}
+
+.stars span:nth-child(13) {
+    top: 88%;
+    left: 9%;
+    font-size: 16px;
+}
+
+.stars span:nth-child(14) {
+    top: 93%;
+    right: 27%;
+    font-size: 9px;
+}
+
+.stars span:nth-child(15) {
+    top: 44%;
+    left: 30%;
+    font-size: 8px;
+}
+
+
+@keyframes starTwinkle {
+
+    0%,
+    100% {
+        opacity: .25;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+/* ==========================================
+   CLOUDS
+========================================== */
+
+.cloud {
+
+    position: absolute;
+
+    width: 320px;
+    height: 100px;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(69, 93, 126, .16),
+            transparent 70%
+        );
+
+    filter: blur(15px);
+
+    opacity: .6;
+}
+
+
+.cloud-one {
+
+    top: 260px;
+    left: -100px;
+
+    transform: rotate(-8deg);
+}
+
+
+.cloud-two {
+
+    top: 330px;
+    right: -120px;
+
+    transform: rotate(7deg);
+}
+
+
+/* ==========================================
+   MOSQUE SILHOUETTE
+========================================== */
+
+.mosque {
+
+    position: absolute;
+
+    bottom: -15px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 180px;
+
+    opacity: .48;
+}
+
+
+/* Main building */
+
+.mosque-building {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 15%;
+
+    width: 70%;
+
+    height: 85px;
+
+    background: #010714;
+
+    border-radius: 100px 100px 0 0;
+}
+
+
+/* Dome */
+
+.mosque-dome {
+
+    position: absolute;
+
+    bottom: 70px;
+
+    left: 38%;
+
+    width: 24%;
+
+    height: 100px;
+
+    background: #010714;
+
+    border-radius:
+        50% 50% 0 0;
+}
+
+
+/* Minarets */
+
+.mosque-minaret {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 8%;
+
+    width: 18px;
+
+    height: 155px;
+
+    background: #010714;
+}
+
+
+.mosque-minaret.second {
+
+    left: auto;
+
+    right: 8%;
+}
+
+
+.mosque-minaret::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -20px;
+
+    left: -8px;
+
+    width: 34px;
+
+    height: 25px;
+
+    border-radius: 50% 50% 0 0;
+
+    background: #010714;
+}
+
+
+/* ==========================================
+   MAIN APP
+========================================== */
+
+.app {
+
+    width: min(1100px, 100%);
+
+    margin: auto;
+
+    padding: 35px 20px 60px;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+
+    text-align: center;
+
+    padding-top: 215px;
+
+    padding-bottom: 35px;
+}
+
+
+.eyebrow {
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 15px rgba(216, 179, 106, .2);
+}
+
+
+.hero h1 {
+
+    font-family: "Amiri", serif;
+
+    font-size: clamp(42px, 7vw, 72px);
+
+    line-height: 1.25;
+
+    color: var(--gold-light);
+
+    text-shadow:
+
+        0 0 25px rgba(243, 217, 154, .15);
+}
+
+
+.hero h2 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    font-size: 22px;
+
+    color: var(--cream);
+
+    margin-top: 2px;
+}
+
+
+.hero p {
+
+    max-width: 520px;
+
+    margin: 13px auto 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* Ornament */
+
+.ornament {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    color: var(--gold);
+
+    margin-top: 20px;
+
+    font-size: 18px;
+}
+
+
+.ornament span {
+
+    width: 70px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--gold)
+        );
+}
+
+
+.ornament span:last-child {
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            var(--gold)
+        );
+}
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.controls {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+.search-box {
+
+    flex: 1;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 18px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid rgba(216, 179, 106, .45);
+
+    background:
+        rgba(5, 19, 43, .68);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, .15);
+
+    transition: .3s;
+}
+
+
+.search-box:focus-within {
+
+    border-color: var(--gold-light);
+
+    box-shadow:
+        0 0 25px rgba(216, 179, 106, .12);
+}
+
+
+.search-icon {
+
+    font-size: 30px;
+
+    color: var(--gold);
+
+    margin-right: 10px;
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--white);
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+
+.search-box input::placeholder {
+
+    color: #8290a7;
+}
+
+
+.search-sparkle {
+
+    color: var(--gold);
+
+    font-size: 20px;
+}
+
+
+/* ==========================================
+   FAVORITES
+========================================== */
+
+.favorite-filter {
+
+    height: 58px;
+
+    padding: 0 25px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid rgba(216, 179, 106, .45);
+
+    background:
+        rgba(5, 19, 43, .68);
+
+    color: var(--gold-light);
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+.favorite-filter:hover,
+.favorite-filter.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #c79c50,
+            #efd48d
+        );
+
+    color: #07152e;
+
+    box-shadow:
+        0 10px 30px rgba(216, 179, 106, .15);
+}
+
+
+/* ==========================================
+   COUNTER
+========================================== */
+
+.counter-row {
+
+    margin: 15px 5px 18px;
+}
+
+
+.counter {
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.counter strong {
+
+    color: var(--gold-light);
+}
+
+
+.tiny-star {
+
+    color: var(--gold);
+
+    margin-right: 5px;
+}
+
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.names-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(240px, 1fr)
+        );
+
+    gap: 17px;
+}
+
+
+.name-card {
+
+    position: relative;
+
+    min-height: 270px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(121, 157, 205, .25);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(18, 47, 91, .75),
+            rgba(4, 16, 37, .8)
+        );
+
+    backdrop-filter: blur(15px);
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform .35s,
+        border .35s,
+        box-shadow .35s;
+
+    animation:
+        cardAppear .55s ease both;
+}
+
+
+.name-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(216, 179, 106, .07),
+            transparent 55%
+        );
+
+    pointer-events: none;
+}
+
+
+.name-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(216, 179, 106, .55);
+
+    box-shadow:
+
+        0 20px 45px rgba(0, 0, 0, .35),
+
+        0 0 30px rgba(216, 179, 106, .08);
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.number {
+
+    color: var(--gold);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+}
+
+
+.favorite-btn {
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(216, 179, 106, .3);
+
+    background:
+        rgba(255,255,255,.025);
+
+    color: #aab7ca;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+.favorite-btn:hover {
+
+    transform:
+        scale(1.15);
+
+    border-color:
+        var(--gold);
+}
+
+
+.favorite-btn.favorited {
+
+    color: var(--gold-light);
+
+    border-color:
+        var(--gold);
+
+    background:
+        rgba(216, 179, 106, .08);
+}
+
+
+/* Arabic */
+
+.arabic {
+
+    text-align: center;
+
+    direction: rtl;
+
+    font-family: "Amiri", serif;
+
+    font-size: 42px;
+
+    color: var(--gold-light);
+
+    margin-top: 27px;
+
+    text-shadow:
+        0 0 20px rgba(216,179,106,.1);
+}
+
+
+.transliteration {
+
+    text-align: center;
+
+    color: #8bb8ee;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    margin-top: 4px;
+}
+
+
+.meaning {
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 6px;
+}
+
+
+.view-more {
+
+    display: block;
+
+    margin:
+        20px auto 0;
+
+    padding:
+        7px 16px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(216,179,106,.3);
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+.name-card:hover .view-more {
+
+    color: var(--gold-light);
+
+    border-color:
+        var(--gold);
+
+}
+
+
+/* ==========================================
+   NO RESULTS
+========================================== */
+
+.no-results {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+
+.no-result-icon {
+
+    font-size: 45px;
+
+    color: var(--gold);
+}
+
+
+.no-results h3 {
+
+    color: var(--white);
+
+    margin-top: 10px;
+}
+
+
+.no-results p {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* ==========================================
+   VERSE
+========================================== */
+
+.verse {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 65px;
+
+    padding: 30px 25px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(216,179,106,.35);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(12,37,75,.72),
+            rgba(3,13,30,.8)
+        );
+
+    backdrop-filter: blur(15px);
+}
+
+
+.verse-content {
+
+    text-align: center;
+
+    max-width: 650px;
+}
+
+
+.verse-arabic {
+
+    font-family: "Amiri", serif;
+
+    color: var(--gold-light);
+
+    font-size: 22px;
+
+    direction: rtl;
+
+    margin-bottom: 8px;
+}
+
+
+.verse p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    color: var(--white);
+
+    line-height: 1.5;
+}
+
+
+.verse span {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    margin-top: 8px;
+
+    letter-spacing: 1px;
+}
+
+
+.verse-decoration {
+
+    color: var(--gold);
+
+    font-size: 25px;
+}
+
+
+.lantern {
+
+    font-size: 45px;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,190,80,.3)
+        );
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 35px 10px 10px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.footer-symbol {
+
+    color: var(--gold);
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(1,6,18,.84);
+
+    backdrop-filter:
+        blur(15px);
+
+    z-index: 100;
+}
+
+
+.modal.show {
+
+    display: flex;
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    width: min(450px,100%);
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    border:
+        1px solid rgba(216,179,106,.4);
+
+    background:
+        linear-gradient(
+            145deg,
+            #102f5c,
+            #030d21
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.65);
+
+    animation:
+        modalOpen .3s ease;
+}
+
+
+@keyframes modalOpen {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(.9);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+.close-btn {
+
+    position: absolute;
+
+    top: 14px;
+    right: 18px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+.close-btn:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+.modal-number {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+.modal-arabic {
+
+    font-family: "Amiri", serif;
+
+    direction: rtl;
+
+    color: var(--gold-light);
+
+    font-size: 58px;
+
+    margin: 20px 0 5px;
+}
+
+
+.modal-content h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    color: #9bc7ff;
+}
+
+
+.modal-meaning {
+
+    color: var(--muted);
+
+    margin: 8px 0 25px;
+}
+
+
+.modal-favorite {
+
+    padding: 12px 22px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid rgba(216,179,106,.4);
+
+    background:
+        rgba(216,179,106,.05);
+
+    color: var(--gold-light);
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+.modal-favorite:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #c69c50,
+            #f0d58d
+        );
+
+    color: #06142e;
+}
+
+
+/* ==========================================
+   MOBILE / REEL
+========================================== */
+
+@media (max-width: 600px) {
+
+    .app {
+
+        padding:
+            20px 14px 40px;
+    }
+
+
+    .hero {
+
+        padding-top: 190px;
+    }
+
+
+    .crescent-moon {
+
+        width: 105px;
+        height: 105px;
+
+        top: 70px;
+    }
+
+
+    .crescent-moon::after {
+
+        width: 100px;
+        height: 100px;
+
+        left: 25px;
+
+        top: -8px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 43px;
+    }
+
+
+    .hero h2 {
+
+        font-size: 18px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .hero p {
+
+        font-size: 11px;
+
+        padding: 0 15px;
+    }
+
+
+    .controls {
+
+        flex-direction: column;
+    }
+
+
+    .favorite-filter {
+
+        height: 50px;
+    }
+
+
+    .names-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .name-card {
+
+        min-height: 250px;
+    }
+
+
+    .verse {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        padding: 25px 15px;
+    }
+
+
+    .verse p {
+
+        font-size: 16px;
+    }
+
+
+    .verse-decoration {
+
+        display: none;
+    }
+
+
+    .lantern {
+
+        display: none;
+    }
+
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
+
+@media (max-width: 380px) {
+
+    .hero {
+
+        padding-top: 175px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 36px;
+    }
+
+
+    .arabic {
+
+        font-size: 38px;
+    }
+
+}

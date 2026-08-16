@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Asma-ul-Husna | 99 Names of Allah</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =========================
+         NIGHT SKY
+    ========================== -->
+
+    <div class="night-sky">
+
+        <div class="moon-glow"></div>
+        <div class="crescent-moon"></div>
+
+        <div class="stars">
+            <span>✦</span>
+            <span>✧</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>✧</span>
+        </div>
+
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+
+        <div class="mosque">
+            <div class="mosque-dome"></div>
+            <div class="mosque-minaret"></div>
+            <div class="mosque-minaret second"></div>
+            <div class="mosque-building"></div>
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN APP
+    ========================== -->
+
+    <main class="app">
+
+        <!-- HERO -->
+
+        <header class="hero">
+
+            <div class="eyebrow">
+                ✦ THE BEAUTIFUL NAMES ✦
+            </div>
+
+            <h1>
+                أَسْمَاءُ اللهِ الْحُسْنَىٰ
+            </h1>
+
+            <h2>
+                99 Beautiful Names of Allah
+            </h2>
+
+            <p>
+                Explore the beautiful names of Allah,
+                discover their meanings, and save your favorites.
+            </p>
+
+            <div class="ornament">
+                <span></span>
+                ❈
+                <span></span>
+            </div>
+
+        </header>
+
+
+        <!-- SEARCH -->
+
+        <section class="controls">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search a name of Allah..."
+                >
+
+                <span class="search-sparkle">✦</span>
+
+            </div>
+
+
+            <button
+                id="favoritesBtn"
+                class="favorite-filter"
+            >
+                ♡ <span>Favorites</span>
+            </button>
+
+        </section>
+
+
+        <!-- COUNTER -->
+
+        <div class="counter-row">
+
+            <div class="counter">
+                <span class="tiny-star">✦</span>
+                Showing
+                <strong id="resultCount">99</strong>
+                names
+            </div>
+
+        </div>
+
+
+        <!-- NAMES -->
+
+        <section
+            id="namesContainer"
+            class="names-container"
+        ></section>
+
+
+        <!-- NO RESULTS -->
+
+        <div
+            id="noResults"
+            class="no-results"
+        >
+
+            <div class="no-result-icon">
+                ☾
+            </div>
+
+            <h3>No names found</h3>
+
+            <p>
+                Try searching for another name or meaning.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             VERSE
+        ========================== -->
+
+        <section class="verse">
+
+            <div class="verse-decoration left">
+                ❈
+            </div>
+
+            <div class="lantern">
+                🏮
+            </div>
+
+            <div class="verse-content">
+
+                <div class="verse-arabic">
+                    وَلِلَّهِ الْأَسْمَاءُ الْحُسْنَىٰ
+                    فَادْعُوهُ بِهَا
+                </div>
+
+                <p>
+                    “And to Allah belong the most beautiful names,
+                    so call upon Him by them.”
+                </p>
+
+                <span>
+                    — Surah Al-A'raf 7:180 —
+                </span>
+
+            </div>
+
+            <div class="verse-decoration right">
+                ❈
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <div class="footer-symbol">
+                ۞
+            </div>
+
+            <p>
+                May these beautiful names bring peace,
+                remembrance and closeness to Allah.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- =========================
+         MODAL
+    ========================== -->
+
+    <div
+        id="modal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                id="closeModal"
+                class="close-btn"
+            >
+                ×
+            </button>
+
+            <div
+                class="modal-number"
+                id="modalNumber"
+            ></div>
+
+            <div
+                class="modal-arabic"
+                id="modalArabic"
+            ></div>
+
+            <h2 id="modalName"></h2>
+
+            <p
+                class="modal-meaning"
+                id="modalMeaning"
+            ></p>
+
+            <button
+                id="modalFavorite"
+                class="modal-favorite"
+            >
+                ♡ Add to Favorites
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
